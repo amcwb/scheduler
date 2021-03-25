@@ -1,23 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700&display=swap');
 
 .Schedule {
+    background-color: aquamarine;
+    
+    font-family: Inter, sans-serif;
+    padding: 1.5em;
+    
     display: flex;
     flex-direction: row;
-    font-size: 20px;
-    width: 100%;
-    font-family: Inter, sans-serif;
-
-    .MainBar {
-        margin: 0.75em;
-        .Title {
-            padding-right: 0.3em;
-            font-weight: 700;
-            display: inline;
+    justify-content: space-between;
+    .Info {
+        font-size: 1.5em;
+        display: flex;
+        flex-direction: column;
+        .MainBar {
+            .Title {
+                padding-right: 0.3em;
+                font-weight: 700;
+                display: inline;
+            }
+    
+            .Countdown {
+                font-weight: 300;
+                display: inline;
+            }
+        }
+    
+        .InfoBar {
+            padding-top: 0.4em;
+            font-size: 0.6em;
+            .Date {
+                padding-right: 0.3em;
+                display: inline;
+    
+                &::after {
+                    content: " •";
+                }
+            }
+    
+            .Description {
+                display: inline;
+            }
         }
 
-        .Countdown {
-            font-weight: 300;
-            display: inline;
-        }
     }
 }
