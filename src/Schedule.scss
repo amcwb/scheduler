@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700&display=swap');
+
+.Schedule {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+    width: 100%;
+    font-family: Inter, sans-serif;
+
+    .MainBar {
+        margin: 0.75em;
+        .Title {
+            padding-right: 0.3em;
+            font-weight: 700;
+            display: inline;
+        }
+
+        .Countdown {
+            font-weight: 300;
+            display: inline;
+        }
+    }
+}

@@ -1,6 +1,7 @@
 import React from "react";
-import "./Schedule.css";
+import "./Schedule.scss";
 import { useStickyState } from "./stickyState";
+import Moment from "react-moment";
 
 interface ScheduleData {
     id: string,
@@ -12,8 +13,15 @@ interface ScheduleData {
 export default function Schedule(props: ScheduleData) {
     let [value, setValue] = useStickyState<ScheduleData>(props, props.id);
     return (
-        <div className="schedule">
-            {value.title} at {new Date(value.date).toLocaleString()}
+        <div className="Schedule">
+            <div className="MainBar">
+                <div className="Title">
+                    {value.title}
+                </div>
+                <div className="Countdown">
+                    <Moment date={value.date} fromNow></Moment>
+                </div>
+            </div>
         </div>
     );
 }
