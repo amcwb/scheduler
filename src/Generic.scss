@@ -1,35 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700&display=swap');
 
-.Schedule {
-    background-color: aquamarine;
-    
+.Block {
     font-family: Inter, sans-serif;
     padding: 1.5em;
     
     display: flex;
     flex-direction: row;
+}
+
+
+.Schedule {
+    background-color: aquamarine;
     justify-content: space-between;
-    .Info {
+    flex-wrap: wrap;
+
+    @extend .Block;
+    > .Info {
+        flex-grow: 9999;
+        flex-basis: 80%;
         font-size: 1.5em;
         display: flex;
         flex-direction: column;
-        .MainBar {
-            .Title {
+        > .MainBar {
+            > .Title {
                 padding-right: 0.3em;
                 font-weight: 700;
                 display: inline;
             }
     
-            .Countdown {
+            > .Countdown {
                 font-weight: 300;
                 display: inline;
             }
         }
     
-        .InfoBar {
+        > .InfoBar {
             padding-top: 0.4em;
             font-size: 0.6em;
-            .Date {
+            > .Date {
                 padding-right: 0.3em;
                 display: inline;
     
@@ -38,10 +46,43 @@
                 }
             }
     
-            .Description {
+            > .Description {
                 display: inline;
             }
         }
+    }
 
+    > .Actions {
+        flex-grow: 1;
+        display: flex;
+        justify-content: space-between;
+
+        > button {
+            display: none;
+            width: 100%;
+        }
+    }
+
+    &:hover {
+        > .Actions > button {
+            display: initial;
+        }
+    }
+}
+
+
+.Header {
+    @extend .Block;
+
+    justify-content: space-between;
+    flex-wrap: wrap;
+    > .Main {
+        font-weight: 700;
+        display: inline;
+    }
+
+    > .Description {
+        font-weight: 300;
+        display: inline;
     }
 }

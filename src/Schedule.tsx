@@ -1,5 +1,5 @@
 import React from "react";
-import "./Schedule.scss";
+import "./Generic.scss";
 import { useStickyState } from "./stickyState";
 import Moment from "react-moment";
 
@@ -34,7 +34,8 @@ export default function Schedule(props: ScheduleData) {
                 </div>
             </div>
             <div className="Actions">
-                aaa
+                <button>Edit</button>
+                <button>Delete</button>
             </div>
         </div>
     );
