@@ -16,7 +16,7 @@ function App() {
         </div>
       </header>
       <div>
-        <Schedule id="a" title="aa" description="aaaaaaaa" date={new Date()}></Schedule>
+        <Schedule id="a" title="aa" description="aaaaaaaa" date={new Date().toISOString()}></Schedule>
       </div>
     </div>
   );
