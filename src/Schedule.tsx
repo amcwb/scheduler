@@ -11,42 +11,42 @@ export interface ScheduleData {
     date: string
 }
 
-export default function Schedule(props: ScheduleData) {
+export interface ScheduleProps extends ScheduleData {
+    onDelete?: (id: string) => void
+}
+
+export default function Schedule(props: ScheduleProps) {
     let [value, setValue] = useStickyState<ScheduleData>(props, props.id);
     let [showPopup, setShowPopup] = useState(false);
 
     let onTitleChange = (event: any) => {
         setValue({
-            id: value.id,
-            title: event.target.value,
-            description: value.description,
-            date: value.date
+            ...value,
+            title: event.target.value
         })
     }
 
     let onDescriptionChange = (event: any) => {
         setValue({
-            id: value.id,
-            title: value.title,
+            ...value,
             description: event.target.value,
-            date: value.date
         })
     }
 
     let onDateChange = (event: any) => {
+        console.log(value.date, event.target.value);
+        if (!event.target.value) return;
         setValue({
-            id: value.id,
-            title: value.title,
-            description: value.description,
+            ...value,
             date: moment(event.target.value + " " + moment(value.date).format("HH:MM:SS")).toISOString()
         })
     }
 
     let onTimeChange = (event: any) => {
+        console.log(value.date, event.target.value);
+        if (!event.target.value) return;
         setValue({
-            id: value.id,
-            title: value.title,
-            description: value.description,
+            ...value,
             date: moment(moment(value.date).format("YYYY/MM/DD") + " " + event.target.value).toISOString()
         })
     }
@@ -72,10 +72,6 @@ export default function Schedule(props: ScheduleData) {
                     </div>
                 </div>
             </div>
-            {/* <div className="Actions">
-                <button onClick={() => setShowPopup(true)}>Edit</button>
-                <button>Delete</button>
-            </div> */}
 
             {showPopup ?
                 <div className="EditSection">
@@ -94,7 +90,7 @@ export default function Schedule(props: ScheduleData) {
                     </div>
                     <div className="Field">
                         <label className="FieldTitle">Danger zone</label>
-                        <button className="FieldInput FieldInput--red" onClick={()=>{}}>Delete</button>
+                        <button className="FieldInput FieldInput--red" onClick={() => {if (props.onDelete) props.onDelete(value.id)}}>Delete</button>
                     </div>
                 </div>
             : null}

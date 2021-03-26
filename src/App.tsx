@@ -1,6 +1,6 @@
 import React from 'react';
-import Schedule from './Schedule';
 import "./Generic.scss";
+import Schedules from './Schedules';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         </div>
       </header>
       <div>
-        <Schedule id="a" title="aa" description="aaaaaaaa" date={new Date().toISOString()}></Schedule>
+        <Schedules></Schedules>
       </div>
     </div>
   );
