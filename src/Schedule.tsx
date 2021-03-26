@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./Generic.scss";
 import { useStickyState } from "./stickyState";
 import Moment from "react-moment";
@@ -53,7 +53,7 @@ export default function Schedule(props: ScheduleData) {
 
     return (
         <div className="Schedule">
-            <div className="Info">
+            <div className="Info" onClick={() => {setShowPopup(!showPopup)}}>
                 <div className="MainBar">
                     <div className="Title">
                         {value.title}
@@ -72,10 +72,10 @@ export default function Schedule(props: ScheduleData) {
                     </div>
                 </div>
             </div>
-            <div className="Actions">
+            {/* <div className="Actions">
                 <button onClick={() => setShowPopup(true)}>Edit</button>
                 <button>Delete</button>
-            </div>
+            </div> */}
 
             {showPopup ?
                 <div className="EditSection">
@@ -91,6 +91,10 @@ export default function Schedule(props: ScheduleData) {
                         <label htmlFor="date" className="FieldTitle">Date and time</label>
                         <input type="date" className="FieldInput" defaultValue={moment(value.date).format("YYYY-MM-DD")} onChange={onDateChange}/>
                         <input type="time" className="FieldInput" defaultValue={moment(value.date).format("HH:MM:SS")} onChange={onTimeChange}/>
+                    </div>
+                    <div className="Field">
+                        <label className="FieldTitle">Danger zone</label>
+                        <button className="FieldInput FieldInput--red" onClick={()=>{}}>Delete</button>
                     </div>
                 </div>
             : null}
