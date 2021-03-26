@@ -11,7 +11,7 @@ interface IndexData {
 }
 
 export default function Schedules() {
-    let [value, setValue] = useStickyState<IndexData>({ orderBy: "endDate", ids: ["a"] }, "index");
+    let [value, setValue] = useStickyState<IndexData>({ orderBy: "endDate", ids: [] }, "index");
 
     // Check valid IDs
     // setValue({
