@@ -8,7 +8,8 @@ export interface ScheduleData {
     id: string,
     title: string,
     description: string,
-    date: string
+    date: string,
+    hue: number
 }
 
 export interface ScheduleProps extends ScheduleData {
@@ -50,9 +51,8 @@ export default function Schedule(props: ScheduleProps) {
             date: moment(moment(value.date).format("YYYY/MM/DD") + " " + event.target.value).toISOString()
         })
     }
-
     return (
-        <div className="Schedule">
+        <div className="Schedule" style={{backgroundColor: "hsl(" + value.hue + ", 75%, 90%)"}}>
             <div className="Info" onClick={() => {setShowPopup(!showPopup)}}>
                 <div className="MainBar">
                     <div className="Title">

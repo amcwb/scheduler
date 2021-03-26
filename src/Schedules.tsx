@@ -34,7 +34,8 @@ export default function Schedules() {
             id: newID,
             title: "My new event",
             description: "Put something here, or keep it empty",
-            date: moment(Date.now()).toISOString()
+            date: moment(Date.now()).toISOString(),
+            hue: 360 * Math.random()
         }))
         
         setValue({
