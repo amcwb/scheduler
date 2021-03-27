@@ -51,8 +51,10 @@ export default function Schedule(props: ScheduleProps) {
             date: moment(moment(value.date).format("YYYY/MM/DD") + " " + event.target.value).toISOString()
         })
     }
+
+    let complementaryHue = (value.hue + 140) % 360;
     return (
-        <div className="Schedule" style={{backgroundColor: "hsl(" + value.hue + ", 75%, 90%)"}}>
+        <div className="Schedule" style={{backgroundColor: "hsl(" + value.hue + ", 50%, 90%)", color: "hsl(" + complementaryHue + ", 50%, 50%)"}}>
             <div className="Info" onClick={() => {setShowPopup(!showPopup)}}>
                 <div className="MainBar">
                     <div className="Title">
