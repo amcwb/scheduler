@@ -52,9 +52,8 @@ export default function Schedule(props: ScheduleProps) {
         })
     }
 
-    let complementaryHue = (value.hue + 140) % 360;
     return (
-        <div className="Schedule" style={{backgroundColor: "hsl(" + value.hue + ", 50%, 90%)", color: "hsl(" + complementaryHue + ", 50%, 50%)"}}>
+        <div className="Schedule" style={{backgroundColor: "hsl(" + value.hue + ", 50%, 90%)"}}>
             <div className="Info" onClick={() => {setShowPopup(!showPopup)}}>
                 <div className="MainBar">
                     <div className="Title">
